@@ -23,8 +23,8 @@ email: mail@mx-e.net
 description: >- # this means to ignore newlines until "baseurl:"
   A blog about anything I find interesting foor a week or two, then forget about. 
   Written to the best of my ability and knowledge. For corrections, comments, interesting content please write an e-mail.
-baseurl: "/blog" # the subpath of your site, e.g. /blog
-url: "http://mx-e.net" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://blog.mx-e.net" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: mx_e_sential
 github_username:  mx-e
 
