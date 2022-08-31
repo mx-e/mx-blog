@@ -1,6 +1,6 @@
 ---
 layout: post
-title:   "What makes "The Batman" such a surprisingly good film?"
+title:   "What makes 'The Batman' such a surprisingly good film?"
 date:   2022-08-31 22:00:00 +0100
 categories: thoughts
 ---
