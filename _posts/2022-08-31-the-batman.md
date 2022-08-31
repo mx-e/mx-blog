@@ -16,7 +16,7 @@ It's not because of some over-the-top action scenes, although the action is fine
 
 It's not because the film takes its time to establish characters and have real dialogue instead of executing the plot in a confused, amphetamine-fueled rush. 
 
-I don't even think it's because of the genuinely great look of Gotham, the almost artistic camera work, or the like, although all that is worth its own praise.
+I don't even think it's because of the genuinely great look of Gotham, the fantastic camera work and the like, although all that is worth its own praise.
 
 I feel like this movie worked so well for me because Batman was not a superhero. He was a detective. He had to drive around a lot. He had to take time to talk to people. Stuff was hard for him. He made mistakes. He got mocked for his weirdness. His tech failed sometimes. His car was recognizably a car. It did not feel like he was in control at all - he played along in the Riddler's game, unable to stop it, even facilitating it at times. His angriness was understood as an endorsement by the Riddler and friends who are similarly angry. 
 
