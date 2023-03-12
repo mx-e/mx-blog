@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Zero to CNC | mx-blog</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Zero to CNC" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Last year I found myself with some free time and decided to try learning some basic woodworking skills. Using hand-held tools quickly reminded me of my ineptitude for craftsmanship, so I was drawn to CNC routing." />
+<meta property="og:description" content="Last year I found myself with some free time and decided to try learning some basic woodworking skills. Using hand-held tools quickly reminded me of my ineptitude for craftsmanship, so I was drawn to CNC routing." />
+<link rel="canonical" href="http://localhost:4000/projects/2023/03/08/zero-to-cnc.html" />
+<meta property="og:url" content="http://localhost:4000/projects/2023/03/08/zero-to-cnc.html" />
+<meta property="og:site_name" content="mx-blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-03-08T20:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Zero to CNC" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/projects/2023/03/08/zero-to-cnc.html","@type":"BlogPosting","headline":"Zero to CNC","datePublished":"2023-03-08T20:00:00+01:00","description":"Last year I found myself with some free time and decided to try learning some basic woodworking skills. Using hand-held tools quickly reminded me of my ineptitude for craftsmanship, so I was drawn to CNC routing.","dateModified":"2023-03-08T20:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/projects/2023/03/08/zero-to-cnc.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="mx-blog" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">mx-blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Zero to CNC</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-03-08T20:00:00+01:00" itemprop="datePublished">Mar 8, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Last year I found myself with some free time and decided to try learning some basic woodworking skills. Using hand-held tools quickly reminded me of my ineptitude for craftsmanship, so I was drawn to CNC routing.</p>
+
+<p>As a first humble project, I decided to make some commonly used joints between two pieces of wood. This is what they look like:</p>
+
+<p><img src="/assets/img/cnc_results1.jpg" alt="project results" />
+<img src="/assets/img/cnc_results2.jpg" alt="project results" /></p>
+
+<p>What was surprisingly hard about this project was that while tutorials were available for each step of the way none was giving you an overview from start to finish. This post explains how I got here. The aim here is less to be a detailed instruction manual - those already exist and are linked to - but more of a strategy guide bringing everything together.</p>
+
+<h3 id="step-0-theory">Step 0: Theory</h3>
+<p>Let’s for a moment revisit what a CNC router is and does.
+This is a fairly typical hobbyist-level CNC router:</p>
+
+<p><img src="/assets/img/cnc_router.jpg" alt="typical CNC-router from Amazon" /></p>
+
+<p>The main part of a CNC router is a rotating routing bit. Think of it as a drill bit that can not only cut down through a material but also sideways. If you put this into a power drill and, unlike me, are a good craftsman, you can cut arbitrary stuff out of wood with it. A CNC router is doing the same. Its sole purpose is moving the router bit around with superhuman precision.</p>
+
+<p>It does this with some <a href="https://en.wikipedia.org/wiki/Stepper_motor">stepper motors</a>, electric motors that know their orientation, and, with some calibration and clever software, the position of the moving pieces they control.</p>
+
+<p>CNC routers are grouped by the ways they can move. For instance, the above image depicts a 3-axis router.</p>
+
+<p>This one can go:</p>
+<ul>
+  <li>back and forth, using the long rails on the sides</li>
+  <li>left and right, using the rail across, on which the routing sub-assembly is mounted, and</li>
+  <li>up and down, using the long screw you can barely see behind the routing head</li>
+</ul>
+
+<p>It notably cannot turn its head along any axis. You can get a router that can do arbitrary movements for enough money, but let’s stay with this one for now.</p>
+
+<p>Ok, but how does the router know what to cut?</p>
+
+<p>It follows instructions such as this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>G17 G20 G90 G94 G54
+G0 Z0.25
+X-0.5 Y0.
+Z0.1
+G01 Z0. F5.
+G02 X0. Y0.5 I0.5 J0. F2.5
+X0.5 Y0. I0. J-0.5
+X0. Y-0.5 I-0.5 J0.
+X-0.5 Y0. I0. J0.5
+G01 Z0.1 F5.
+G00 X0. Y0. Z0.25
+</code></pre></div></div>
+<p>This is machine code, called G-code, encoding movement on the three axes the router can move in. In the line <code class="language-plaintext highlighter-rouge">G02 X0. Y0.5 I0.5 J0. F2.5</code>, for example, <code class="language-plaintext highlighter-rouge">G02</code> means “do a circular interpolation in a clockwise direction”, <code class="language-plaintext highlighter-rouge">X0. Y0.5</code> are the absolute coordinates of the endpoint of the arc, <code class="language-plaintext highlighter-rouge">I0.5 J0.</code> are the relative coordinates of the center of the arc, and <code class="language-plaintext highlighter-rouge">F2.5</code> indicates the speed of the router relative to some basic unit. So the line tells the router to follow a quarter circle. The entire code above encodes cutting a circle of one unit (cm, inch, whatever the router was calibrated to) diameter.</p>
+
+<p>We do not want to write this code by hand. It is typically generated by a compiler from a model of the object to cut, similar to how an executable is compiled from human-readable code. So we need to start with modeling.</p>
+
+<h3 id="step-1-modelling">Step 1: Modelling</h3>
+
+<p>Modeling means making a plan for the thing we want to make. For CNC routing several types of abstractions appear to be useful:</p>
+
+<ul>
+  <li>a 2D model, i.e., a sketch, of the path the router would follow</li>
+  <li>a 2D sketch including not only paths but entire areas the router should clear</li>
+  <li>a 3D model of the entire object we wish to create</li>
+</ul>
+
+<p>These options follow an ascending level of abstraction: The first option is just a visual representation of the G-code in 2 dimensions, i.e., implying a constant cutting depth. The second option leaves the calculation of the optimal path to clear a solid area of material to the compiler. The third also requires the compiler to determine the depth of different cuts.</p>
+
+<p>I decided to go with the final one since it abstracts away as much tedious work as possible. Another plus is that 3D modeling is useful for all kinds of projects, not just CNC routing.</p>
+
+<p>The problem was that I knew zero modeling. So next up was finding the right software and learning the basics.</p>
+
+<p>There are many great programs for 3D modeling. I did zero research and trusted my friends who recommended <a href="https://www.autodesk.com/products/fusion-360/overview?term=1-YEAR&amp;tab=subscription">Fusion 360</a>. It turned out to have all that I need, including a “Manufacture” context that can generate router-ready G-Code from models with little extra work. While it is not primarily designed for woodworking and can be quite slow (we are cracking a nut with a sledgehammer here) its general-purpose usefulness is a plus in my book. That being said, maybe there is a better tool for you.</p>
+
+<p>Here are some of the resources I used to learn general 3D modeling with Fusion 360:</p>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=d3qGQ2utl2A">a lecture series explaining the basics</a></li>
+  <li><a href="https://www.youtube.com/watch?v=mK60ROb2RKI">a more advanced project with moving parts</a></li>
+</ul>
+
+<p>These were more than sufficient for a simple project. After a handful of the exercises, you should easily be able to replicate my  models:</p>
+
+<p><img src="/assets/img/cnc_models.jpg" alt="finished models in fusion" /></p>
+
+<p>Before we move on to generating G-Code, I want to highlight one modeling feature of Fusion 360 here that people might otherwise overlook, but in my opinion is essential: construction parameters.</p>
+
+<p>Parameters let you change the dimensions of your models on the fly.  Because Fusion 360 is functional (in the Computer Science sense of functional, meaning the finished model is the result of applying operations, one after another, starting with the first sketch) very complex things can be achieved by simply changing a parameter. Changing a parameter in Fusion feels similar to changing a variable in a complicated Excel sheet and watching the results recompute.</p>
+
+<p>This is practical in several ways: For one, you can play with the finished model to find a visual style you like. You can also start planning a project without knowing its exact dimension. You a range of things (for example, differently sized drawers), simply by changing some variables in a finished model.</p>
+
+<p><img src="/assets/img/cnc_fusion_params.png" alt="parameters interface" /></p>
+
+<p>Here you can see some of the parameters of the second model above. As you can see, the parameters can even reference each other. Here are 3 different versions of the same model with different parameters.</p>
+
+<p><img src="/assets/img/cnc_params_variants.jpg" alt="parameter variants" /></p>
+
+<p>Now that I have convinced you to try using parameters in Fusion, let’s move on.</p>
+
+<h3 id="step-2-model-to-g-code">Step 2: Model to G-Code</h3>
+
+<p>To get our router to cut the models we just made, we have to somehow compile them into the instructions from step 0. Luckily, as I have mentioned above, Fusion can do this for us too: We simply need to switch to the “Manufacturing” context. Next, we need to tell Fusion where we need to cut. Here are some resources that can help you with this:</p>
+
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=VPMvnzmuTOw">great tutorial introducing all the basic operations</a></li>
+  <li><a href="https://www.youtube.com/watch?v=Do_C_NLH5sw">another tutorial explaining the basics</a></li>
+  <li><a href="https://www.youtube.com/watch?v=Y-OU0yaD62w">tutorial for 3D sculpting (not needed for this project, but fun)</a></li>
+</ul>
+
+<p><img src="/assets/img/cnc_routing_path.png" alt="cnc routing paths" /></p>
+
+<p>One non-obvious thing you need to know for this step is the routing bits you are going to use. I bought mine <a href="https://www.sorotec.de/shop/">here</a>. This project was entirely cut with a <a href="https://www.sorotec.de/shop/Cutting-Tools/sorotec-tools/2-flute-mills/END-Mill-UNI-299/">cheap 3mm universal bit</a>, although for later projects I used <a href="https://www.sorotec.de/shop/Cutting-Tools/sorotec-tools/2-flute-mills/END-Mill-WOOD/">dedicated wood bits</a>. It’s fairly simple to add these bits to the Fusion 360 tool library. Don’t worry if you do not know all the measurements Fusion asks of you, if you know the diameter and total length below the holder and the shape looks about right, you’re good. Here’s a <a href="https://www.sorotec.de/webshop/Datenblaetter/fraeser/schnittwerte_en.pdf">pdf</a> that helps you calculate the cutting speed Fusion wants to know. If this is your first project it’s a good idea to half all the values.</p>
+
+<p><img src="/assets/img/cnc_tool_config.png" alt="Fusions tool configuration dialogue" /></p>
+
+<p>Now that all the routing paths have been drawn by Fusion 360 and you have checked with the simulation feature that everything looks O.K., there is a final obstacle to getting the G-Code: You need to know which “flavor” of G-Code your router wants, and for that, you need to know which router you are going to be working with. I used <a href="https://wiki.happylab.at/w/CNC_Fräse">this</a> router at the <a href="https://happylab.de/de_ber/">Happylab Comaking Space</a> in Berlin. The <a href="https://wiki.happylab.at/w/CNC_Fräse">wiki article</a> of the co-making space tells us it needs the “Eding CNC” G-code, and indeed it is part of Fusion 360’s long list of installable compiler libraries. Once we install and run this, the G-code comes out.</p>
+
+<p><img src="/assets/img/cnc_simulate.png" alt="Fusions CNC simulation tool" /></p>
+
+<h3 id="step-3-physically-using-the-router">Step 3: Physically using the router</h3>
+
+<p>Now that we have solved the issue of telling the router what to do, we can get back to physical routing. Roughly, here is the process:</p>
+
+<ol>
+  <li>You boot the router. There usually is a PC controlling the router, which you start as well.</li>
+  <li>There is a control program on the router PC. Use it to start the router’s calibration run, which will initialize the software to track the current position of the drill bit.</li>
+  <li>Fix the piece of wood you’re cutting from to the router, either with clamps or by screwing it onto a larger, “sacrificial” piece already clamped down. I prefer the second option since the screws don’t get into the way as much as the clamps.</li>
+  <li>Insert the routing bit.</li>
+  <li>Use the software and/or the controls of the router to move the router to the origin point of your routing setup (in my case, the center of the wood plate I cut from). I use a piece of paper to check that the routing bit touches the surface.</li>
+  <li>Set all coordinates to zero here. This will align the origin point of the router with that of your G-code.</li>
+  <li>Load your G-code into the router control program. A path preview should show up in the routing program.</li>
+  <li>Move the routing bit around to the edges of the previewed paths (its position should show up in the program, too). This will give you an idea of where the bit will move and whether it will hit anything (a clamp, for example) or leave the material at any point.</li>
+  <li>Start the program. Do not sit back and watch. Keep the controls ready to slow down or pause the program if something goes wrong.</li>
+</ol>
+
+<p>The specifics of this step will depend on your router setup. Still, here are some resources:</p>
+<ul>
+  <li><a href="https://wiki.happylab.at/w/CNC_Fräse">A wiki page for the router I used, including multiple video tutorials</a></li>
+  <li><a href="https://wiki.happylab.at/w/CNC_Fräse#/media/Datei:Spannzange.jpg">How to insert the tool into the tool holder</a></li>
+  <li><a href="https://youtube.com/watch?v=_Rt5sC9DrEQ">A helpful youtube tutorial for setting up the router (skip to 9:27)</a></li>
+</ul>
+
+<div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/807324162?h=a00ade062c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="69134526802__0932CC5B-99E1-4A62-BBDA-62854C8B3E14.MOV"></iframe></div>
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+<h3 id="step-4-profit">Step 4: Profit</h3>
+
+<p>After the router has finished, you can remove the piece from the router, cut away the tabs holding your piece … and you are finished. Congratulations, you went from zero to CNC.</p>
+
+<p><img src="/assets/img/cnc_cut_out.jpg" alt="cutting out the models" /></p>
+
+<p>Moving on to more complex projects is now just a matter of experience. The hardest part is done. For inspiration, here are 2 things I have made since making the step from zero to CNC:</p>
+
+<p><img src="/assets/img/cnc_further_proj1.jpg" alt="my other cnc projects" />
+<img src="/assets/img/cnc_further_proj2.jpg" alt="my other cnc projects" />
+<img src="/assets/img/cnc_further_proj3.jpg" alt="my other cnc projects" /></p>
+
+
+  </div><a class="u-url" href="/projects/2023/03/08/zero-to-cnc.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">mx-blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">mx-blog</li><li><a class="u-email" href="mailto:mail@mx-e.net">mail@mx-e.net</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/mx-e"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">mx-e</span></a></li><li><a href="https://www.twitter.com/mx_e_"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">mx_e_</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A blog about anything I find interesting. Written to the best of my ability and knowledge. For corrections, comments, interesting content please write an e-mail.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
