@@ -81,7 +81,7 @@ Before we move on to generating G-Code, I want to highlight one modeling feature
 
 Parameters let you change the dimensions of your models on the fly.  Because Fusion 360 is functional (in the Computer Science sense of functional, meaning the finished model is the result of applying operations, one after another, starting with the first sketch) very complex things can be achieved by simply changing a parameter. Changing a parameter in Fusion feels similar to changing a variable in a complicated Excel sheet and watching the results recompute.
 
-This is practical in several ways: For one, you can play with the finished model to find a visual style you like. You can also start planning a project without knowing its exact dimension. You a range of things (for example, differently sized drawers), simply by changing some variables in a finished model. 
+This is practical in several ways: For one, you can play with the finished model to find a visual style you like. You can also start planning a project without knowing its exact dimension. You can make a range of things (for example, differently sized drawers), simply by changing some variables in a finished model. 
 
 ![parameters interface](/assets/img/cnc_fusion_params.png)
 
